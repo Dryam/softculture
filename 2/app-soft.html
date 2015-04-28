@@ -1,0 +1,83 @@
+<link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
+<link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
+<link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="bower_components/core-menu/core-submenu.html">
+<link rel="import" href="bower_components/core-item/core-item.html">
+<link rel="import" href="bower_components/core-label/core-label.html">
+<link rel="import" href="bower_components/core-input/core-input.html">
+
+<polymer-element name="app-soft">
+
+    <template>
+        <link href="app-soft.css" rel="stylesheet" shim-shadowdom>
+        <core-drawer-panel transition drawerwidth="210px" id="test12" responsivewidth="968px" selected="main" id="core_drawer_panel" touch-action>
+            <section id="section" drawer>
+                <core-toolbar vertical layout center center-justified id="core_toolbar1">
+                    <div id="logo" flex><span>софт культура</span></div>
+                </core-toolbar>
+
+                <core-menu multi id="core_menu">
+                    <core-item id="core_item" label="Сохранить"></core-item>
+                    <core-item id="core_item" label="Создать новую"></core-item>
+                    <core-item id="core_item" label="Поиск"></core-item>
+                    <core-item id="core_item" class="separator"></core-item>
+                    <core-item id="core_item" label="Студенты"></core-item>
+                    <core-item id="core_item" label="Выйти"></core-item>
+                </core-menu>
+
+            </section>
+            <section id="section1" main>
+                <core-toolbar id="core_toolbar" layout vertical center-justified>
+                    <core-icon-button icon="chevron-left" id="toggle" on-click="{{buttonClick}}"></core-icon-button>
+                </core-toolbar>
+                <core-label>
+                    <span>Шифр</span>
+                    <input is="core-input" id="shifr" placeholder="">
+                </core-label>
+                <core-label>
+                    <span>Название программы</span>
+                    <input is="core-input" id="prog_name" placeholder="">
+                </core-label>
+                <core-label>
+                    <span>Перподователь</span>
+                    <input is="core-input" id="teacher" placeholder="">
+                </core-label>
+                <core-label>
+                    <span>Тип</span>
+                    <input is="core-input" id="type" placeholder="">
+                </core-label>
+                <core-label>
+                    <span>Дата начала</span>
+                    <input is="core-input" id="start_date" placeholder="">
+                </core-label>
+                <core-label>
+                    <span>Стастус</span>
+                    <input is="core-input" id="status" placeholder="">
+                </core-label>
+                <core-label>
+                    <span>Базовая цена</span>
+                    <input is="core-input" id="base_price" placeholder="">
+                </core-label>
+                <core-label>
+                    <span>Размер группы</span>
+                    <input is="core-input" id="group_size" placeholder="">
+                </core-label>
+                <core-label>
+                    <span>Фильтр</span>
+                    <input type="checkbox" id="filter" is="core-input" placeholder="">
+                </core-label>
+            </section>
+        </core-drawer-panel>
+    </template>
+
+    <script>
+        Polymer({
+            buttonClick: function() {
+                this.$.test12.forceNarrow = !this.$.test12.forceNarrow;
+                this.$.test12.togglePanel();
+            }
+        });
+    </script>
+
+</polymer-element>
