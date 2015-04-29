@@ -1,6 +1,6 @@
 {
   "name": "softculture",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "authors": [
     "Dryam <dryam.zen@gmail.com>"
   ],
@@ -20,6 +20,7 @@
     "core-menu": "Polymer/core-menu#~0.5.5",
     "core-item": "Polymer/core-item#~0.5.5",
     "core-input": "Polymer/core-input#~0.5.5",
-    "core-label": "Polymer/core-label#~0.5.5"
+    "core-label": "Polymer/core-label#~0.5.5",
+    "firebase-element": "Polymer/firebase-element#~0.5.5"
   }
 }

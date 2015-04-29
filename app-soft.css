@@ -8,7 +8,7 @@
     font-family: Arial, sans-serif;
     font-size: 12px;
 }
-#logo {
+#logo {    
     font-size: 11pt;
     text-transform: uppercase;   
     text-align: center;
@@ -23,7 +23,7 @@
 }
 p{
     padding: 10px 0 20px 0;
-    margin: 0;
+    margin: 0;    
 }
 #toggle{
     color: rgb(17, 167, 104);
