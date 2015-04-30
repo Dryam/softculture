@@ -21,6 +21,7 @@
     "core-item": "Polymer/core-item#~0.5.5",
     "core-input": "Polymer/core-input#~0.5.5",
     "core-label": "Polymer/core-label#~0.5.5",
-    "firebase-element": "Polymer/firebase-element#~0.5.5"
+    "firebase-element": "Polymer/firebase-element#~0.5.5",
+    "core-localstorage": "Polymer/core-localstorage#~0.5.5"
   }
 }

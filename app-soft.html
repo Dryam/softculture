@@ -6,27 +6,28 @@
 <link rel="import" href="bower_components/core-item/core-item.html">
 <link rel="import" href="bower_components/firebase-element/firebase-login.html">
 <link rel="import" href="bower_components/firebase-element/firebase-element.html">
+<link rel="import" href="bower_components/core-localstorage/core-localstorage.html">
 
 <polymer-element name="app-soft">
  
   <template>
     <link href="app-soft.css" rel="stylesheet" shim-shadowdom>
-    <core-drawer-panel transition drawerwidth="210px" id="test12" responsivewidth="968px" selected="main" id="core_drawer_panel" touch-action>
+    <core-drawer-panel transition drawerwidth="210px" responsivewidth="968px" selected="main" touch-action id="{{state}}">
       <section id="section" drawer>
         <core-toolbar vertical layout center center-justified id="core_toolbar1">
-          <div id="logo" flex><span>{{data.states.state_1.coreDrawerpanel.drawer.logo}}</span></div>
+          <div id="logo" flex><span>{{dataLocal.states.state_1.coreDrawerpanel.drawer.logo}}</span></div>
         </core-toolbar>
         
-        <core-menu multi id="core_menu">
-          <template repeat="{{item in items}}">          
+        <core-menu multi id="core_menu">                
+          <template repeat="{{item in MenuItems}}">          
               <template if="{{item.subItems}}">
                 <core-submenu opened active id="{{item.id}}" label="{{item.label}}">
                   <template repeat="{{sub in item.subItems}}">
-                    <core-item id="{{sub.id}}" label="{{sub.label}}"></core-item>
+                    <core-item id="{{sub.id}}" on-click="{{itemClick}}" label="{{sub.label}}"></core-item>
                   </template>
               </template>
               <template if="{{!item.subItems}}">
-                <core-item id="{{item.id}}" label="{{item.label}}"></core-item>
+                <core-item id="{{item.id}}" label="{{item.label}}" on-click="{{itemClick}}"></core-item>
               </template>  
           </template>
         </core-menu>
@@ -36,7 +37,7 @@
         <core-toolbar id="core_toolbar" layout vertical center-justified>
         <core-icon-button icon="chevron-left" id="toggle" on-click="{{buttonClick}}"></core-icon-button>          
         </core-toolbar>
-
+        <core-localstorage id="baseLocal" name="culturesoftLocal" value="{{dataLocal}}"></core-localstorage>
         <firebase-element id="base" location="https://softculture.firebaseio.com/" data="{{data}}" keys="{{keys}}" log childEvents></firebase-element>
 
         <h3 id="h31">программа</h3>
@@ -189,19 +190,70 @@
     </core-drawer-panel>
   </template>
  
-  <script>
-
-
-
+<!--   <script>
 Polymer('app-soft', {
     buttonClick: function() {
         this.$.test12.forceNarrow = !this.$.test12.forceNarrow;
         this.$.test12.togglePanel();
     },
     dataChanged : function(){
-      console.log(this.items = this.data.states.state_1.coreDrawerpanel.drawer.coreMenu.items);
+      this.MenuItems = this.data.states.state_1.coreDrawerpanel.drawer.coreMenu.items;
+    },
+    ready: function(){
+        console.log(state);
+    },    
+    dataChanged: function(){
+        console.log(1);
     }
 });
+</script> -->
+<script>
+
+(function() {
+    var loocalState = 'state_1';
+    
+    Polymer('app-soft', {
+        ready: function() {
+            this.$.baseLocal.addEventListener('core-localstorage-load', this.console);
+            this.addEventListener('data-change', this.changedData);
+            console.log("Ready");
+        },
+        console: function(e){
+            console.log(3);
+        },
+        changedData : function(){          
+          this.dataLocal = this.data;
+          console.log("changedData");
+        },
+//         updateModel: function(){
+//           this.MenuItems = this.dataLocal.states[loocalState].coreDrawerpanel.drawer.coreMenu.items;
+//         },
+        dataLocalChanged: function(){
+             this.MenuItems = this.dataLocal.states[loocalState].coreDrawerpanel.drawer.coreMenu.items;
+             console.log("dataChanged");
+        },        
+//         itemClick: function(event, detail, sender){            
+//             switch (sender.id){
+//                 case 'back':
+//                 back();
+//                 break;
+//                 case 'forward':
+//                 forward();
+//                 break;
+//                 case 'exit':
+//                 localState = 'logout';
+//                 break;
+//                 case 'students':                     
+//                 localState = 'state_2';
+//                 break;
+
+//             }
+            itemClick: function(){
+                console.log(this.$.core_menu.templateInstance.model.MenuItems);
+            }
+        
+    });
+})();
 </script>
  
 </polymer-element>
