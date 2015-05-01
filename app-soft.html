@@ -15,7 +15,7 @@
     <core-drawer-panel transition drawerwidth="210px" responsivewidth="968px" selected="main" touch-action id="{{state}}">
       <section id="section" drawer>
         <core-toolbar vertical layout center center-justified id="core_toolbar1">
-          <div id="logo" flex><span>{{dataLocal.states.state_1.coreDrawerpanel.drawer.logo}}</span></div>
+          <div id="logo" flex><span>{{localData.states.state_1.coreDrawerpanel.drawer.logo}}</span></div>
         </core-toolbar>
         
         <core-menu multi id="core_menu">                
@@ -37,10 +37,10 @@
         <core-toolbar id="core_toolbar" layout vertical center-justified>
         <core-icon-button icon="chevron-left" id="toggle" on-click="{{buttonClick}}"></core-icon-button>          
         </core-toolbar>
-        <core-localstorage id="baseLocal" name="culturesoftLocal" value="{{dataLocal}}"></core-localstorage>
-        <firebase-element id="base" location="https://softculture.firebaseio.com/" data="{{data}}" keys="{{keys}}" log childEvents></firebase-element>
+        <core-localstorage id="baseLocal" name="culturesoftLocal" value="{{localData}}"></core-localstorage>
+        <firebase-element id="base" location="https://softculture.firebaseio.com/" data="{{remoteData}}" keys="{{keys}}" childEvents></firebase-element>
 
-        <h3 id="h31">программа</h3>
+        <h3 id="h31">программа {{localState}}</h3>
         <p>VWX_4.6.03 - Vectorworks - 26 января</p>
         <h3 id="h3">cтатус</h3>
         <p>формируется</p>
@@ -189,69 +189,50 @@
       </section>      
     </core-drawer-panel>
   </template>
- 
-<!--   <script>
-Polymer('app-soft', {
-    buttonClick: function() {
-        this.$.test12.forceNarrow = !this.$.test12.forceNarrow;
-        this.$.test12.togglePanel();
-    },
-    dataChanged : function(){
-      this.MenuItems = this.data.states.state_1.coreDrawerpanel.drawer.coreMenu.items;
-    },
-    ready: function(){
-        console.log(state);
-    },    
-    dataChanged: function(){
-        console.log(1);
-    }
-});
-</script> -->
 <script>
 
+
 (function() {
-    var loocalState = 'state_1';
+    var localState = 'state_1';    
     
     Polymer('app-soft', {
-        ready: function() {
-            this.$.baseLocal.addEventListener('core-localstorage-load', this.console);
-            this.addEventListener('data-change', this.changedData);
-            console.log("Ready");
+        ready: function() {         
+        console.log('Polymer Ready');        
+        this.$.base.addEventListener('core-localstorage-load', console.log('a value is loaded from localStorage'));        
+        },       
+        remoteDataChanged: function() {
+            console.info('Remote data changed');
+            this.remote2Local();
         },
-        console: function(e){
-            console.log(3);
+        localDataChanged: function() {
+            console.info('localData changed')
+            this.MenuItems = this.localData.states[localState].coreDrawerpanel.drawer.coreMenu.items;
+          
         },
-        changedData : function(){          
-          this.dataLocal = this.data;
-          console.log("changedData");
+        localStateChanged: function(){
+            console.log('localState changed to' + localState);
+            this.updateModels();
         },
-//         updateModel: function(){
-//           this.MenuItems = this.dataLocal.states[loocalState].coreDrawerpanel.drawer.coreMenu.items;
-//         },
-        dataLocalChanged: function(){
-             this.MenuItems = this.dataLocal.states[loocalState].coreDrawerpanel.drawer.coreMenu.items;
-             console.log("dataChanged");
-        },        
-//         itemClick: function(event, detail, sender){            
-//             switch (sender.id){
-//                 case 'back':
-//                 back();
-//                 break;
-//                 case 'forward':
-//                 forward();
-//                 break;
-//                 case 'exit':
-//                 localState = 'logout';
-//                 break;
-//                 case 'students':                     
-//                 localState = 'state_2';
-//                 break;
-
-//             }
-            itemClick: function(){
-                console.log(this.$.core_menu.templateInstance.model.MenuItems);
-            }
-        
+        remote2Local: function(e){
+            this.localData = this.remoteData;
+            console.info('remoteData saved to localData');            
+        },
+        updateModels : function(){
+            this.$.core_menu.templateInstance.model.MenuItems = this.localData.states[localState].coreDrawerpanel.drawer.coreMenu.items;  
+        },
+        itemClick: function(e) {
+            switch(e.target.id){
+                case 'students':
+                    localState = "state_2";
+                    break;
+                case 'programms':
+                    localState = "state_1";
+                    break;    
+                default:
+                console.log(e.target.id);
+                }
+                this.updateModels();                
+        }
     });
 })();
 </script>
