@@ -193,49 +193,52 @@
 <script>
 
 
+
+
 (function() {
-    var initialState = 'state_1';
-    var app = document.querySelector('app-soft');
-    app.state = initialState;
-    Polymer('app-soft', {        
-        ready: function() {         
-        console.log('Polymer Ready');        
-        console.log(this.state);        
-        this.$.base.addEventListener('core-localstorage-load', console.log('a value is loaded from localStorage'));        
-        },       
-        remoteDataChanged: function() {
-            console.info('Remote data changed');
-            this.remote2Local();
-        },
-        localDataChanged: function() {
-            console.info('localData changed')
-            this.MenuItems = this.localData.states[this.state].coreDrawerpanel.drawer.coreMenu.items;
-          
-        },
-        stateChanged: function(){
-            console.log('state changed to ' + this.state);   
-            this.updateModels();
-        },
-        remote2Local: function(e){
-            this.localData = this.remoteData;
-            console.info('remoteData saved to localData');            
-        },        
-        updateModels : function(){
-            this.$.core_menu.templateInstance.model.MenuItems = this.localData.states[this.state].coreDrawerpanel.drawer.coreMenu.items;  
-        },
-        itemClick: function(e) {
-            switch(e.target.id){
-                case 'students':
-                    this.state = "state_2";
-                    break;
-                case 'programms':
-                    this.state = "state_1";
-                    break;    
-                default:
-                console.log(e.target.id);
-                }                                
-        }
-    });
+	var initialState = 'state_1';
+	Polymer('app-soft', {
+		created: function() {
+			var app = document.querySelector('app-soft');
+			app.state = initialState;			
+		},
+		ready: function() {
+			console.log('Polymer Ready');
+			this.$.base.addEventListener('core-localstorage-load', console.log('a value is loaded from localStorage'));
+		},
+		remoteDataChanged: function() {
+			console.info('Remote data changed');
+			this.remote2Local();
+		},
+		localDataChanged: function() {
+			console.info('localData changed')
+			this.MenuItems = this.localData.states[this.state].coreDrawerpanel.drawer.coreMenu.items;
+		
+		},
+		stateChanged: function() {
+			console.log('state changed to ' + this.state);
+			this.updateModels();
+		},
+		remote2Local: function(e) {
+			this.localData = this.remoteData;
+			console.info('remoteData saved to localData');
+		},
+		updateModels: function() {
+			this.$.core_menu.templateInstance.model.MenuItems = this.localData.states[this.state].coreDrawerpanel.drawer.coreMenu.items;
+		},
+		itemClick: function(e) {
+			switch (e.target.id) {
+				case 'students':
+					this.state = "state_2";
+					break;
+				case 'programms':
+					this.state = "state_1";
+					break;
+				default:
+					console.log(e.target.id);
+			}
+		}
+	});
 })();
 </script>
  
