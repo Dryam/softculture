@@ -8,6 +8,7 @@
 }
 #logo span{
     border-bottom: 2px solid #ffffff;
+    text-transform:uppercase;
 }
 #section {
     color: rgb(255, 255, 255);    
