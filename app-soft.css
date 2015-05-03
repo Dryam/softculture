@@ -1,14 +1,6 @@
 <style>
-:host {
-        box-sizing: border-box;
-      }
-#core_drawer_panel {    
-    right: 0px;
-    bottom: 0px;
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-}
-#logo {    
+
+#logo{    
     font-size: 11pt;
     text-transform: uppercase;   
     text-align: center;
@@ -109,5 +101,35 @@ tr:nth-child(even) {
 }
 .info_block{
     margin-top: 35px;
+}
+/* 2 */
+core-label span{
+    display:block;
+    font-family:'Baufra';
+    font-size: 11px;
+    color: rgb(17, 167, 104);
+    text-transform:uppercase;
+    padding-bottom:5px;
+}
+
+core-label /deep/ input[is=core-input]{
+    background-color:rgb(237,237,237) !important;
+    margin-bottom: 15px !important;
+}
+core-label #shifr, core-label #prog_name ,core-label #teacher{
+    width:200px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    padding: 2px;
+}
+core-label #type, core-label #start_date, core-label #status, core-label #base_price, core-label #group_size{
+    width:100px;
+    padding: 2px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+core-label /deep/ #filter[is=core-input]{
+    width: 20px !important;
+    height: 20px;    
 }
 </style>

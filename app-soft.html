@@ -7,207 +7,159 @@
 <link rel="import" href="bower_components/firebase-element/firebase-login.html">
 <link rel="import" href="bower_components/firebase-element/firebase-element.html">
 <link rel="import" href="bower_components/core-localstorage/core-localstorage.html">
+<link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
 
 <polymer-element name="app-soft">
- 
-  <template>
-    <link href="app-soft.css" rel="stylesheet" shim-shadowdom>
-    <core-drawer-panel transition drawerwidth="210px" responsivewidth="968px" selected="main" touch-action id="{{state}}">
-      <section id="section" drawer>
-        <core-toolbar vertical layout center center-justified id="core_toolbar1">
-          <div id="logo" flex><span>{{localData.states.state_1.coreDrawerpanel.drawer.logo}}</span></div>
-        </core-toolbar>
-        
-        <core-menu multi id="core_menu">                
-          <template repeat="{{item in MenuItems}}">          
-              <template if="{{item.subItems}}">
-                <core-submenu opened active id="{{item.id}}" label="{{item.label}}">
-                  <template repeat="{{sub in item.subItems}}">
-                    <core-item id="{{sub.id}}" on-click="{{itemClick}}" label="{{sub.label}}"></core-item>
-                  </template>
-              </template>
-              <template if="{{!item.subItems}}">
-                <core-item id="{{item.id}}" label="{{item.label}}" on-click="{{itemClick}}"></core-item>
-              </template>  
-          </template>
-        </core-menu>
-        
-      </section>
-      <section id="section1"  main>
-        <core-toolbar id="core_toolbar" layout vertical center-justified>
-        <core-icon-button icon="chevron-left" id="toggle" on-click="{{buttonClick}}"></core-icon-button>          
-        </core-toolbar>
-        <core-localstorage id="baseLocal" name="culturesoftLocal" value="{{localData}}"></core-localstorage>
-        <firebase-element id="base" location="https://softculture.firebaseio.com/" data="{{remoteData}}" keys="{{keys}}" childEvents></firebase-element>
 
+    <template>
+        <link href="app-soft.css" rel="stylesheet" shim-shadowdom>
+        <core-drawer-panel drawerwidth="210px" responsivewidth="968px" selected="main" touch-action id="{{state}}" flex>
+            <core-header-panel id="section" mode="scroll" drawer>
+                <section id="section">
+                    <core-toolbar vertical layout center center-justified id="core_toolbar1">
+                        <div id="logo" flex><span>{{localData.states.state_1.coreDrawerpanel.drawer.logo}}</span></div>
+                    </core-toolbar>
 
-        <h3 id="h31">программа</h3>
-        <p>VWX_4.6.03 - Vectorworks - 26 января</p>
-        <h3 id="h3">cтатус</h3>
-        <p>формируется</p>
-        <table id="table" cols="9">
-          <tbody id="tbody">
-            <tr id="tr">
-              <th id="th">#</th>
-              <th>имя</th>
-              <th>телефон</th>
-              <th>зв. 1</th>
-              <th>зв. 2</th>
-              <th>sms</th>
-              <th>сумма</th>
-              <th>оплатил</th>
-              <th>комментарий</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Анастасия Банкова</td>
-              <td>8 (916) 555 55 55</td>
-              <td>да</td>
-              <td>нет</td>
-              <td>нет</td>
-              <td>8500</td>
-              <td>да</td>
-              <td>Здесь будет комментарий</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Александра Крылова</td>
-              <td>8 (916) 555 55 55</td>
-              <td>нет</td>
-              <td>нет</td>
-              <td>нет</td>
-              <td>9500</td>
-              <td>Частично</td>
-              <td>?</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Дарья Афонина</td>
-              <td>8 (916) 555 55 55</td>
-              <td>да</td>
-              <td>нет</td>
-              <td>нет</td>
-              <td>8000</td>
-              <td>Полностью</td>
-              <td id="td3"></td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Евгений Мальцев</td>
-              <td>8 (916) 555 55 55</td>
-              <td>нет</td>
-              <td>нет</td>
-              <td>нет</td>
-              <td>7500?</td>
-              <td>да</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Анастасия Банкова</td>
-              <td>8 (916) 555 55 55</td>
-              <td>да</td>
-              <td>нет</td>
-              <td>нет</td>
-              <td>8500</td>
-              <td>да</td>
-              <td>Договор №005</td>
-            </tr>
-            <tr>
-              <td id="td1"></td>
-              <td id="td"></td>
-              <td id="td2"></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="info_block">
-                <h3 id="h32">информация</h3>
-                <p>5 - 45 000 - 40 000</p>
-        </div>
-        
-    
-      </section>      
-    </core-drawer-panel>
-  </template>
-<script>
+                    <core-menu multi id="core_menu">
+                        <template repeat="{{item in MenuItems}}">
+                            <template if="{{item.subItems}}">
+                                <core-submenu opened active id="{{item.id}}" label="{{item.label}}">
+                                    <template repeat="{{sub in item.subItems}}">
+                                        <core-item id="{{sub.id}}" on-click="{{itemClick}}" label="{{sub.label}}"></core-item>
+                                    </template>
+                            </template>
+                            <template if="{{!item.subItems}}">
+                                <core-item id="{{item.id}}" label="{{item.label}}" on-click="{{itemClick}}"></core-item>
+                            </template>
+                        </template>
+                    </core-menu>
+                </section>
+            </core-header-panel>
+            <core-header-panel main mode="scroll">
+                <section id="section1">
+                    <core-toolbar id="core_toolbar" layout vertical center-justified>
+                        <core-icon-button icon="chevron-left" id="toggle" on-click="{{buttonClick}}"></core-icon-button>
+                    </core-toolbar>
+                    <core-localstorage id="baseLocal" name="culturesoftLocal" value="{{localData}}"></core-localstorage>
+                    <firebase-element id="base" location="https://softculture.firebaseio.com/" data="{{remoteData}}" keys="{{keys}}" childEvents></firebase-element>
 
-
-
+                    <template if="{{ state == 'state_1' }}">
+                        
+                    <h3 id="h31">программа</h3>
+                    <p>VWX_4.6.03 - Vectorworks - 26 января</p>
+                    <h3 id="h3">cтатус</h3>
+                    <p>формируется</p>
+                    <table id="table" cols="9">
+                        <tbody id="tbody">
+                            <tr id="tr">
+                                <th id="th">#</th>
+                                <th>имя</th>
+                                <th>телефон</th>
+                                <th>зв. 1</th>
+                                <th>зв. 2</th>
+                                <th>sms</th>
+                                <th>сумма</th>
+                                <th>оплатил</th>
+                                <th>комментарий</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Анастасия Банкова</td>
+                                <td>8 (916) 555 55 55</td>
+                                <td>да</td>
+                                <td>нет</td>
+                                <td>нет</td>
+                                <td>8500</td>
+                                <td>да</td>
+                                <td>Здесь будет комментарий</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Александра Крылова</td>
+                                <td>8 (916) 555 55 55</td>
+                                <td>нет</td>
+                                <td>нет</td>
+                                <td>нет</td>
+                                <td>9500</td>
+                                <td>Частично</td>
+                                <td>?</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Дарья Афонина</td>
+                                <td>8 (916) 555 55 55</td>
+                                <td>да</td>
+                                <td>нет</td>
+                                <td>нет</td>
+                                <td>8000</td>
+                                <td>Полностью</td>
+                                <td id="td3"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="info_block">
+                        <h3 id="h32">информация</h3>
+                        <p>5 - 45 000 - 40 000</p>
+                    </div>
+                    </template>                        
+                    <hr>
+					<template if="{{state == 'state_2'}}">
+                    <core-label>
+                        <span>Шифр</span>
+                        <input is="core-input" id="shifr" placeholder="">
+                    </core-label>
+                    <core-label>
+                        <span>Название программы</span>
+                        <input is="core-input" id="prog_name" placeholder="">
+                    </core-label>
+                    <core-label>
+                        <span>Перподователь</span>
+                        <input is="core-input" id="teacher" placeholder="">
+                    </core-label>
+                    <core-label>
+                        <span>Тип</span>
+                        <input is="core-input" id="type" placeholder="">
+                    </core-label>
+                    <core-label>
+                        <span>Дата начала</span>
+                        <input is="core-input" id="start_date" placeholder="">
+                    </core-label>
+                    <core-label>
+                        <span>Стастус</span>
+                        <input is="core-input" id="status" placeholder="">
+                    </core-label>
+                    <core-label>
+                        <span>Базовая цена</span>
+                        <input is="core-input" id="base_price" placeholder="">
+                    </core-label>
+                    <core-label>
+                        <span>Размер группы</span>
+                        <input is="core-input" id="group_size" placeholder="">
+                    </core-label>
+                    <core-label>
+                        <span>Фильтр</span>
+                        <input type="checkbox" id="filter" is="core-input" placeholder="">
+                    </core-label>
+                    </template>
+                </section>
+            </core-header-panel>
+        </core-drawer-panel>
+    </template>
+    <script>
 
 (function() {
 	var initialState = 'state_1';
 	Polymer('app-soft', {
 		created: function() {
 			var app = document.querySelector('app-soft');
-			app.state = initialState;			
+			app.state = initialState;
 		},
 		ready: function() {
 			console.log('Polymer Ready');
-			this.$.base.addEventListener('core-localstorage-load', console.log('a value is loaded from localStorage'));
+			this.$.base.addEventListener('core-localstorage-load', console.info('a value is loaded from localStorage'));
 		},
 		remoteDataChanged: function() {
-			console.info('Remote data changed');
+			console.info('remoteData changed');
 			this.remote2Local();
 		},
 		localDataChanged: function() {
@@ -216,7 +168,7 @@
 		
 		},
 		stateChanged: function() {
-			console.log('state changed to ' + this.state);
+			console.info('state changed to ' + this.state);
 			this.updateModels();
 		},
 		remote2Local: function(e) {
@@ -235,11 +187,11 @@
 					this.state = "state_1";
 					break;
 				default:
-					console.log(e.target.id);
+					console.warn('no state or actions for ' + '#' + e.target.id);
 			}
 		}
 	});
 })();
 </script>
- 
+
 </polymer-element>
