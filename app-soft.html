@@ -17,7 +17,7 @@
             <core-header-panel id="section" mode="scroll" drawer>
                 <section id="section">
                     <core-toolbar vertical layout center center-justified id="core_toolbar1">
-                        <div id="logo" flex><span>{{localData.states.state_1.coreDrawerpanel.drawer.logo}}</span></div>
+                        <div id="logo" flex><span>{{localData.states[state].coreDrawerpanel.drawer.logo}}</span></div>
                     </core-toolbar>
 
                     <core-menu multi id="core_menu">
@@ -43,7 +43,7 @@
                     <core-localstorage id="baseLocal" name="culturesoftLocal" value="{{localData}}"></core-localstorage>
                     <firebase-element id="base" location="https://softculture.firebaseio.com/" data="{{remoteData}}" keys="{{keys}}" childEvents></firebase-element>
 
-                    <template if="{{ state == 'state_1' }}">
+                    <template if="{{ state == 'all_programms' }}">
                         
                     <h3 id="h31">программа</h3>
                     <p>VWX_4.6.03 - Vectorworks - 26 января</p>
@@ -101,9 +101,8 @@
                         <h3 id="h32">информация</h3>
                         <p>5 - 45 000 - 40 000</p>
                     </div>
-                    </template>                        
-                    <hr>
-					<template if="{{state == 'state_2'}}">
+                    </template>                                            
+					<template if="{{state == 'all_students'}}">
                     <core-label>
                         <span>Шифр</span>
                         <input is="core-input" id="shifr" placeholder="">
@@ -148,7 +147,7 @@
     <script>
 
 (function() {
-	var initialState = 'state_1';
+	var initialState = 'all_programms';
 	Polymer('app-soft', {
 		created: function() {
 			var app = document.querySelector('app-soft');
@@ -181,10 +180,10 @@
 		itemClick: function(e) {
 			switch (e.target.id) {
 				case 'students':
-					this.state = "state_2";
+					this.state = "all_students";
 					break;
 				case 'programms':
-					this.state = "state_1";
+					this.state = "all_programms";
 					break;
 				default:
 					console.warn('no state or actions for ' + '#' + e.target.id);
