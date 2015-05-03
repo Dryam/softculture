@@ -44,153 +44,250 @@
                     <firebase-element id="base" location="https://softculture.firebaseio.com/" data="{{remoteData}}" keys="{{keys}}" childEvents></firebase-element>
 
                     <template if="{{ state == 'all_programms' }}">
+
+                        <h3 id="h31">программа</h3>
+                        <p>VWX_4.6.03 - Vectorworks - 26 января</p>
+                        <h3 id="h3">cтатус</h3>
+                        <p>формируется</p>
+                        <table id="table" cols="9">
+                            <tbody id="tbody">
+                                <tr id="tr">
+                                    <th id="th">#</th>
+                                    <th>имя</th>
+                                    <th>телефон</th>
+                                    <th>зв. 1</th>
+                                    <th>зв. 2</th>
+                                    <th>sms</th>
+                                    <th>сумма</th>
+                                    <th>оплатил</th>
+                                    <th>комментарий</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Анастасия Банкова</td>
+                                    <td>8 (916) 555 55 55</td>
+                                    <td>да</td>
+                                    <td>нет</td>
+                                    <td>нет</td>
+                                    <td>8500</td>
+                                    <td>да</td>
+                                    <td>Здесь будет комментарий</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Александра Крылова</td>
+                                    <td>8 (916) 555 55 55</td>
+                                    <td>нет</td>
+                                    <td>нет</td>
+                                    <td>нет</td>
+                                    <td>9500</td>
+                                    <td>Частично</td>
+                                    <td>?</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Дарья Афонина</td>
+                                    <td>8 (916) 555 55 55</td>
+                                    <td>да</td>
+                                    <td>нет</td>
+                                    <td>нет</td>
+                                    <td>8000</td>
+                                    <td>Полностью</td>
+                                    <td id="td3"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="info_block">
+                            <h3 id="h32">информация</h3>
+                            <p>5 - 45 000 - 40 000</p>
+                        </div>
+                    </template>
+
+                    <template if="{{ state == 'all_students' }}">
                         
-                    <h3 id="h31">программа</h3>
-                    <p>VWX_4.6.03 - Vectorworks - 26 января</p>
-                    <h3 id="h3">cтатус</h3>
-                    <p>формируется</p>
-                    <table id="table" cols="9">
-                        <tbody id="tbody">
-                            <tr id="tr">
-                                <th id="th">#</th>
-                                <th>имя</th>
-                                <th>телефон</th>
-                                <th>зв. 1</th>
-                                <th>зв. 2</th>
-                                <th>sms</th>
-                                <th>сумма</th>
-                                <th>оплатил</th>
-                                <th>комментарий</th>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Анастасия Банкова</td>
-                                <td>8 (916) 555 55 55</td>
-                                <td>да</td>
-                                <td>нет</td>
-                                <td>нет</td>
-                                <td>8500</td>
-                                <td>да</td>
-                                <td>Здесь будет комментарий</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Александра Крылова</td>
-                                <td>8 (916) 555 55 55</td>
-                                <td>нет</td>
-                                <td>нет</td>
-                                <td>нет</td>
-                                <td>9500</td>
-                                <td>Частично</td>
-                                <td>?</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Дарья Афонина</td>
-                                <td>8 (916) 555 55 55</td>
-                                <td>да</td>
-                                <td>нет</td>
-                                <td>нет</td>
-                                <td>8000</td>
-                                <td>Полностью</td>
-                                <td id="td3"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="info_block">
-                        <h3 id="h32">информация</h3>
-                        <p>5 - 45 000 - 40 000</p>
-                    </div>
-                    </template>                                            
-					<template if="{{state == 'all_students'}}">
-                    <core-label>
-                        <span>Шифр</span>
-                        <input is="core-input" id="shifr" placeholder="">
-                    </core-label>
-                    <core-label>
-                        <span>Название программы</span>
-                        <input is="core-input" id="prog_name" placeholder="">
-                    </core-label>
-                    <core-label>
-                        <span>Перподователь</span>
-                        <input is="core-input" id="teacher" placeholder="">
-                    </core-label>
-                    <core-label>
-                        <span>Тип</span>
-                        <input is="core-input" id="type" placeholder="">
-                    </core-label>
-                    <core-label>
-                        <span>Дата начала</span>
-                        <input is="core-input" id="start_date" placeholder="">
-                    </core-label>
-                    <core-label>
-                        <span>Стастус</span>
-                        <input is="core-input" id="status" placeholder="">
-                    </core-label>
-                    <core-label>
-                        <span>Базовая цена</span>
-                        <input is="core-input" id="base_price" placeholder="">
-                    </core-label>
-                    <core-label>
-                        <span>Размер группы</span>
-                        <input is="core-input" id="group_size" placeholder="">
-                    </core-label>
-                    <core-label>
-                        <span>Фильтр</span>
-                        <input type="checkbox" id="filter" is="core-input" placeholder="">
-                    </core-label>
+                        <table id="table" cols="6">
+                            <tbody id="tbody">
+                                <tr id="tr">
+                                    <th id="th">#</th>
+                                    <th>имя</th>
+                                    <th>телефон</th>
+                                    <th>e-mail</th>
+                                    <th>программа</th>
+                                    <th>тег</th>                                    
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Анастасия Банкова</td>
+                                    <td>8 (916) 555 55 55</td>
+                                    <td>barsh@gmail.com</td>
+                                    <td>VWX_4.6.03</td>
+                                    <td>нет</td>                                    
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Анастасия Банкова</td>
+                                    <td>8 (916) 555 55 55</td>
+                                    <td>barsh@gmail.com</td>
+                                    <td>VWX_4.6.03</td>
+                                    <td>нет</td>                                    
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Анастасия Банкова</td>
+                                    <td>8 (916) 555 55 55</td>
+                                    <td>barsh@gmail.com</td>
+                                    <td>VWX_4.6.03</td>
+                                    <td>нет</td>                                    
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Анастасия Банкова</td>
+                                    <td>8 (916) 555 55 55</td>
+                                    <td>barsh@gmail.com</td>
+                                    <td>VWX_4.6.03</td>
+                                    <td>нет</td>                                    
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Анастасия Банкова</td>
+                                    <td>8 (916) 555 55 55</td>
+                                    <td>barsh@gmail.com</td>
+                                    <td>VWX_4.6.03</td>
+                                    <td>нет</td>                                    
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>Анастасия Банкова</td>
+                                    <td>8 (916) 555 55 55</td>
+                                    <td>barsh@gmail.com</td>
+                                    <td>VWX_4.6.03</td>
+                                    <td>нет</td>                                    
+                                </tr>                                
+                            </tbody>
+                        </table>                        
+                    </template>
+
+                    <template if="{{state == 'createNewProgram'}}">
+                        <core-label>
+                            <span>Шифр</span>
+                            <input is="core-input" id="shifr" placeholder="">
+                        </core-label>
+                        <core-label>
+                            <span>Название программы</span>
+                            <input is="core-input" id="prog_name" placeholder="">
+                        </core-label>
+                        <core-label>
+                            <span>Перподователь</span>
+                            <input is="core-input" id="teacher" placeholder="">
+                        </core-label>
+                        <core-label>
+                            <span>Тип</span>
+                            <input is="core-input" id="type" placeholder="">
+                        </core-label>
+                        <core-label>
+                            <span>Дата начала</span>
+                            <input is="core-input" id="start_date" placeholder="">
+                        </core-label>
+                        <core-label>
+                            <span>Стастус</span>
+                            <input is="core-input" id="status" placeholder="">
+                        </core-label>
+                        <core-label>
+                            <span>Базовая цена</span>
+                            <input is="core-input" id="base_price" placeholder="">
+                        </core-label>
+                        <core-label>
+                            <span>Размер группы</span>
+                            <input is="core-input" id="group_size" placeholder="">
+                        </core-label>
+                        <core-label>
+                            <span>Фильтр</span>
+                            <input type="checkbox" id="filter" is="core-input" placeholder="">
+                        </core-label>
+                    </template>
+
+                    <template if="{{state == 'createNewStudent'}}">
+                        <core-label>
+                            <span>Имя</span>
+                            <input is="core-input" id="shifr" placeholder="">
+                        </core-label>
+                        <core-label>
+                            <span>Фамилия</span>
+                            <input is="core-input" id="prog_name" placeholder="">
+                        </core-label>
+                        <core-label>
+                            <span>Телефон</span>
+                            <input is="core-input" id="teacher" placeholder="">
+                        </core-label>
+                        <core-label>
+                            <span>Электронная почта</span>
+                            <input is="core-input" id="type" placeholder="">
+                        </core-label>
+                        <core-label>
+                            <span>Тэг</span>
+                            <input is="core-input" id="start_date" placeholder="">
+                        </core-label>
+                        <core-label>
+                            <span>Программы</span>
+                            <input is="core-input" id="status" placeholder="">
+                        </core-label>                        
                     </template>
                 </section>
             </core-header-panel>
         </core-drawer-panel>
     </template>
     <script>
+        (function() {
+            var initialState = 'all_programms';
+            Polymer('app-soft', {
+                created: function() {
+                    var app = document.querySelector('app-soft');
+                    app.state = initialState;
+                },
+                ready: function() {
+                    console.log('Polymer Ready');
+                    this.$.base.addEventListener('core-localstorage-load', console.info('a value is loaded from localStorage'));
+                },
+                remoteDataChanged: function() {
+                    console.info('remoteData changed');
+                    this.remote2Local();
+                },
+                localDataChanged: function() {
+                    console.info('localData changed')
+                    this.MenuItems = this.localData.states[this.state].coreDrawerpanel.drawer.coreMenu.items;
 
-(function() {
-	var initialState = 'all_programms';
-	Polymer('app-soft', {
-		created: function() {
-			var app = document.querySelector('app-soft');
-			app.state = initialState;
-		},
-		ready: function() {
-			console.log('Polymer Ready');
-			this.$.base.addEventListener('core-localstorage-load', console.info('a value is loaded from localStorage'));
-		},
-		remoteDataChanged: function() {
-			console.info('remoteData changed');
-			this.remote2Local();
-		},
-		localDataChanged: function() {
-			console.info('localData changed')
-			this.MenuItems = this.localData.states[this.state].coreDrawerpanel.drawer.coreMenu.items;
-		
-		},
-		stateChanged: function() {
-			console.info('state changed to ' + this.state);
-			this.updateModels();
-		},
-		remote2Local: function(e) {
-			this.localData = this.remoteData;
-			console.info('remoteData saved to localData');
-		},
-		updateModels: function() {
-			this.$.core_menu.templateInstance.model.MenuItems = this.localData.states[this.state].coreDrawerpanel.drawer.coreMenu.items;
-		},
-		itemClick: function(e) {
-			switch (e.target.id) {
-				case 'students':
-					this.state = "all_students";
-					break;
-				case 'programms':
-					this.state = "all_programms";
-					break;
-				default:
-					console.warn('no state or actions for ' + '#' + e.target.id);
-			}
-		}
-	});
-})();
-</script>
+                },
+                stateChanged: function() {
+                    console.info('state changed to ' + this.state);
+                    this.updateModels();
+                },
+                remote2Local: function(e) {
+                    this.localData = this.remoteData;
+                    console.info('remoteData saved to localData');
+                },
+                updateModels: function() {
+                    this.$.core_menu.templateInstance.model.MenuItems = this.localData.states[this.state].coreDrawerpanel.drawer.coreMenu.items;
+                },
+                itemClick: function(e) {
+                    switch (e.target.id) {
+                        case 'students':
+                            this.state = "all_students";
+                            break;
+                        case 'programms':
+                            this.state = "all_programms";
+                            break;
+                        case 'createNewProgram':
+                            this.state = "createNewProgram";
+                            break;
+                        case 'createNewStudent':
+                            this.state = "createNewStudent";
+                            break;    
+                        default:
+                            console.warn('no state or actions for ' + '#' + e.target.id);
+                    }
+                }
+            });
+        })();
+    </script>
 
 </polymer-element>

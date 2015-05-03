@@ -5,6 +5,7 @@
     text-transform: uppercase;   
     text-align: center;
     font-family: 'Baufra';    
+    display: none;
 }
 #logo span{
     border-bottom: 2px solid #ffffff;
