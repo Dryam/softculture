@@ -1,0 +1,219 @@
+{
+  "states" : {
+    "all_programms" : {
+      "coreDrawerpanel" : {
+        "drawer" : {
+          "coreMenu" : {
+            "items" : [ {
+              "id" : "back",
+              "label" : "Назад"
+            }, {
+              "id" : "forward",
+              "label" : "Вперед"
+            }, {
+              "id" : "search",
+              "label" : "Поиск"
+            }, {
+              "id" : "edit",
+              "label" : "Редактировать"
+            }, {
+              "id" : "createNewProgram",
+              "label" : "Создать новую"
+            }, {
+              "id" : "filter",
+              "label" : "Фильтр",
+              "subItems" : [ {
+                "id" : "filter_1",
+                "label" : "VWX_4.6.03"
+              }, {
+                "id" : "filter_2",
+                "label" : "VWX_0.0.0"
+              }, {
+                "id" : "filter_3",
+                "label" : "RHN_0.0.0"
+              }, {
+                "id" : "all",
+                "label" : "Все"
+              }, {
+                "id" : "active",
+                "label" : "Активные"
+              }, {
+                "id" : "formed",
+                "label" : "Формируются..."
+              } ]
+            }, {
+              "id" : "actions",
+              "label" : "Действия",
+              "subItems" : [ {
+                "id" : "open",
+                "label" : "Открыть"
+              }, {
+                "id" : "replace",
+                "label" : "Перенести"
+              }, {
+                "id" : "copyAdress",
+                "label" : "Скопировать адрес"
+              }, {
+                "id" : "copyAllAdress",
+                "label" : "Скопировать все адреса"
+              }, {
+                "id" : "copyList",
+                "label" : "Скоприровать список"
+              } ]
+            }, {
+              "id" : "students",
+              "label" : "Студенты"
+            }, {
+              "id" : "exit",
+              "label" : "Выйти"
+            } ]
+          },
+          "logo" : "софт культура"
+        },
+        "main" : {
+          "content" : {
+            "text" : "hello!"
+          }
+        }
+      }
+    },
+    "all_students" : {
+      "coreDrawerpanel" : {
+        "drawer" : {
+          "coreMenu" : {
+            "items" : [ {
+              "id" : "edit",
+              "label" : "Редактировать"
+            }, {
+              "id" : "createNewStudent",
+              "label" : "Внести нового"
+            }, {
+              "id" : "search",
+              "label" : "Поиск"
+            }, {
+              "id" : "filter",
+              "label" : "Фильтр",
+              "subItems" : [ {
+                "id" : "filter_1",
+                "label" : "VWX_4.6.03"
+              }, {
+                "id" : "filter_2",
+                "label" : "VWX_0.0.0"
+              }, {
+                "id" : "filter_3",
+                "label" : "RHN_0.0.0"
+              }, {
+                "id" : "all",
+                "label" : "Все"
+              }, {
+                "id" : "active",
+                "label" : "Активные"
+              }, {
+                "id" : "formed",
+                "label" : "Формируются..."
+              } ]
+            }, {
+              "id" : "actions",
+              "label" : "Действия",
+              "subItems" : [ {
+                "id" : "replace",
+                "label" : "Перенести"
+              }, {
+                "id" : "copyAdress",
+                "label" : "Скопировать адреса"
+              }, {
+                "id" : "copyList",
+                "label" : "Скоприровать список"
+              } ]
+            }, {
+              "id" : "programms",
+              "label" : "Программы"
+            }, {
+              "id" : "exit",
+              "label" : "Выйти"
+            } ]
+          },
+          "logo" : "софт культура"
+        },
+        "main" : {
+          "content" : {
+            "text" : "hello!"
+          }
+        }
+      }
+    },
+    "createNewProgram" : {
+      "coreDrawerpanel" : {
+        "drawer" : {
+          "coreMenu" : {
+            "items" : [ {
+              "id" : "saveProgram",
+              "label" : "сохранить"
+            }, {
+              "id" : "createNewProgram",
+              "label" : "Создать новую"
+            }, {
+              "id" : "search",
+              "label" : "Поиск"
+            }, {
+              "id" : "deliver",
+              "label" : ""
+            }, {
+              "id" : "students",
+              "label" : "Студенты"
+            }, {
+              "id" : "exit",
+              "label" : "Выйти"
+            } ]
+          },
+          "logo" : "софт культура"
+        },
+        "main" : {
+          "content" : {
+            "text" : "hello!"
+          }
+        }
+      }
+    },
+    "createNewStudent" : {
+      "coreDrawerpanel" : {
+        "drawer" : {
+          "coreMenu" : {
+            "items" : [ {
+              "id" : "save",
+              "label" : "Сохранить"
+            }, {
+              "id" : "insertNewStudent",
+              "label" : "Внести нового"
+            }, {
+              "id" : "search",
+              "label" : "Поиск"
+            }, {
+              "id" : "actions",
+              "label" : "Действия",
+              "subItems" : [ {
+                "id" : "copyAdress",
+                "label" : "Скопировать адрес"
+              }, {
+                "id" : "copyAllAdress",
+                "label" : "Скопировать имя"
+              } ]
+            }, {
+              "id" : "programms",
+              "label" : "Программы"
+            }, {
+              "id" : "exit",
+              "label" : "Выйти"
+            } ]
+          },
+          "logo" : "софт культура"
+        },
+        "main" : {
+          "content" : {
+            "text" : "hello!"
+          }
+        }
+      }
+    }
+  }
+}

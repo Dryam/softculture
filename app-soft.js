@@ -5,10 +5,11 @@
 	Polymer('app-soft', {
 		created: function() {
 			var app = document.querySelector('app-soft');
-			app.state = initialState;
+			app.state = initialState;			
 		},
 		ready: function() {
 			console.log('Polymer Ready');
+			this.thisdynamicPath = 'states';			
 			this.$.base.addEventListener('core-localstorage-load', console.info('a value is loaded from localStorage'));
 		},
 		remoteDataChanged: function() {
@@ -31,8 +32,18 @@
 		updateModels: function() {
 			this.$.core_menu.templateInstance.model.MenuItems = this.localData.states[this.state].coreDrawerpanel.drawer.coreMenu.items;
 		},
-		saveProgram: function() {						
-			this.remoteData.states.all_programms = 1;
+		saveProgram: function() {									
+			this.$.baseAdmin.push({
+				shifr: this.shifr,
+				prog_name: this.prog_name,
+				teacher: this.teacher,
+				type: this.type,
+				start_date: this.start_date,
+				status: this.status,
+				base_price: this.base_price,
+				group_size: this.group_size,
+				filter: this.filter
+			})			
 		},
 		itemClick: function(e) {
 			switch (e.target.id) {
@@ -43,10 +54,11 @@
 					this.state = "all_programms";
 					break;
 				case 'createNewProgram':
-					this.state = "createNewProgram";
+					this.state = "createNewProgram";					
+					this.adminLocation = "https://softculture.firebaseio.com/states/all_programms/coreDrawerpanel/main/programms";															
 					break;
-				case 'createNewStudent':
-					this.state = "createNewStudent";
+				case 'createNewStudent':					
+					this.state = "createNewStudent";					
 					break;
 				case 'saveProgram':
 					this.saveProgram();

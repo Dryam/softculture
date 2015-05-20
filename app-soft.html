@@ -41,7 +41,8 @@
                         <core-icon-button icon="chevron-left" id="toggle" on-click="{{buttonClick}}"></core-icon-button>
                     </core-toolbar>
                     <core-localstorage id="baseLocal" name="culturesoftLocal" value="{{localData}}"></core-localstorage>
-                    <firebase-element id="base" location="https://softculture.firebaseio.com/" data="{{remoteData}}" keys="{{keys}}" childEvents></firebase-element>
+                    <firebase-element id="base" location="https://softculture.firebaseio.com" data="{{remoteData}}" keys="{{keys}}" childEvents></firebase-element>
+                    <firebase-element id="baseAdmin" location={{adminLocation}} data="{{adminData}}" childEvents></firebase-element>
 
                     <template if="{{ state == 'all_programms' }}">
 
@@ -170,46 +171,46 @@
                     <template if="{{state == 'createNewProgram'}}">
                         <core-label>
                             <span>Шифр</span>
-                            <input is="core-input" id="shifr" placeholder="">
+                            <input is="core-input" value="{{shifr}}" committedValue="{{committedValue1}}" id="shifr" placeholder="">
                         </core-label>
                         <core-label>
                             <span>Название программы</span>
-                            <input is="core-input" id="prog_name" placeholder="">
+                            <input is="core-input" value="{{prog_name}}" id="prog_name" placeholder="">
                         </core-label>
                         <core-label>
                             <span>Перподователь</span>
-                            <input is="core-input" id="teacher" placeholder="">
+                            <input is="core-input" value="{{teacher}}" id="teacher" placeholder="">
                         </core-label>
                         <core-label>
                             <span>Тип</span>
-                            <input is="core-input" id="type" placeholder="">
+                            <input is="core-input" value="{{type}}" id="type" placeholder="">
                         </core-label>
                         <core-label>
                             <span>Дата начала</span>
-                            <input is="core-input" id="start_date" placeholder="">
+                            <input is="core-input" value="{{start_date}}" id="start_date" placeholder="">
                         </core-label>
                         <core-label>
                             <span>Стастус</span>
-                            <input is="core-input" id="status" placeholder="">
+                            <input is="core-input" value="{{status}}" id="status" placeholder="">
                         </core-label>
                         <core-label>
                             <span>Базовая цена</span>
-                            <input is="core-input" id="base_price" placeholder="">
+                            <input is="core-input" value="{{base_price}}" id="base_price" placeholder="">
                         </core-label>
                         <core-label>
                             <span>Размер группы</span>
-                            <input is="core-input" id="group_size" placeholder="">
+                            <input is="core-input" value="{{group_size}}" id="group_size" placeholder="">
                         </core-label>
                         <core-label>
                             <span>Фильтр</span>
-                            <input type="checkbox" id="filter" is="core-input" placeholder="">
+                            <input type="checkbox" value="{{filter}}" id="filter" is="core-input" placeholder="">
                         </core-label>
                     </template>
 
                     <template if="{{state == 'createNewStudent'}}">
                         <core-label>
                             <span>Имя</span>
-                            <input is="core-input" id="shifr" placeholder="">
+                            <input is="core-input" id="shifr">
                         </core-label>
                         <core-label>
                             <span>Фамилия</span>
