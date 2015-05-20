@@ -32,8 +32,7 @@
 		updateModels: function() {
 			this.$.core_menu.templateInstance.model.MenuItems = this.localData.states[this.state].coreDrawerpanel.drawer.coreMenu.items;
 		},
-		saveProgram: function() {
-			console.log(this.$.omgTest);
+		saveProgram: function() {			
 			this.$.omgTest.show();
 			this.$.baseAdmin.push({
 				shifr: this.shifr,
@@ -75,8 +74,12 @@
 				case 'saveProgram':
 					this.saveProgram();
 					break;
+				case 'logo':
+					this.state="all_programms";
+					break;	
 				default:
 					console.warn('no state or actions for ' + '#' + e.target.id);
+					console.warn(e.target);
 			}
 		}
 	});

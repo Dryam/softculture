@@ -19,8 +19,8 @@
         <core-drawer-panel drawerwidth="210px" responsivewidth="968px" selected="main" touch-action id="{{state}}" flex>
             <core-header-panel id="section" mode="scroll" drawer>
                 <section id="section">
-                    <core-toolbar vertical layout center center-justified id="core_toolbar1">
-                        <div id="logo" flex><span>{{localData.states[state].coreDrawerpanel.drawer.logo}}</span></div>
+                    <core-toolbar vertical layout center center-justified id="core_toolbar1" on-click="{{itemClick}}">
+                        <div id="logo" flex><span id='logo'>{{localData.states[state].coreDrawerpanel.drawer.logo}}</span></div>
                     </core-toolbar>
 
                     <core-menu multi id="core_menu">
