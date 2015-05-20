@@ -45,7 +45,17 @@
 				base_price: this.base_price,
 				group_size: this.group_size,
 				filter: this.filter
-			})			
+			},
+				this.shifr = '',
+				this.prog_name = '',
+				this.teacher = '',
+				this.start_date = '',
+				this.type = '',
+				this.status = '',
+				this.base_price = '',
+				this.group_size = ''				
+
+			)			
 		},
 		itemClick: function(e) {
 			switch (e.target.id) {

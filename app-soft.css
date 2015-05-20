@@ -134,4 +134,10 @@ core-label /deep/ #filter[is=core-input]{
     width: 20px !important;
     height: 20px;    
 }
+paper-toast {
+  right: 10px;
+  left: auto;
+  background-color:rgb(17, 167, 104);
+  color: #ffffff;
+} 
 </style>

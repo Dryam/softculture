@@ -9,6 +9,8 @@
 <link rel="import" href="bower_components/core-localstorage/core-localstorage.html">
 <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
 <link rel="import" href="bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="bower_components/core-icon/core-icon.html">
+<link rel="import" href="bower_components/core-icons/core-icons.html">
 
 <polymer-element name="app-soft">
 
@@ -168,8 +170,8 @@
                             </tbody>
                         </table>                        
                     </template>
-                     <paper-toast id="omgTest" text="Connection timed out. Showing limited messages.">
-                                        <div style="color: blue;">Retry</div>
+                     <paper-toast id="omgTest" text="Изменения сохранены">                                        
+                     <core-icon icon="done"></core-icon>
                     </paper-toast>
                     <template if="{{state == 'createNewProgram'}}">
                    
