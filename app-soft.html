@@ -11,6 +11,9 @@
 <link rel="import" href="bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="bower_components/core-icon/core-icon.html">
 <link rel="import" href="bower_components/core-icons/core-icons.html">
+<link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="bower_components/paper-dialog/paper-action-dialog.html">
+<link rel="import" href="bower_components/paper-button/paper-button.html">
 
 <polymer-element name="app-soft">
 
@@ -46,7 +49,18 @@
                     <core-localstorage id="baseLocal" name="culturesoftLocal" value="{{localData}}"></core-localstorage>
                     <firebase-element id="base" location="https://softculture.firebaseio.com" data="{{remoteData}}" keys="{{keys}}" childEvents></firebase-element>
                     <firebase-element id="baseAdmin" location={{adminLocation}} data="{{adminData}}" childEvents></firebase-element>
-
+                    <paper-action-dialog heading="Добро пожаловать" backdrop id="dialog">
+                    <p>Здесь вы можете ознакомиться с текущей версией проекта.</p>
+                    <p>Активны следующие функции
+                                        <ul>
+                                                            <li>Переход во вкладку «студенты» и сохранение новых студентов</li>                    
+                                                            <li>Переход во вкладку «программы» и сохранение новых программ</li>                                                            
+                                        </ul>
+                    
+                    </p>
+                    <p>В ближайшее время заработают остальные пункты меню.</p>             
+                    <paper-button on-click="{{itemClick}}" id="close" affirmative autofocus><core-icon  id="close" icon="done"></core-icon></paper-button>
+                    </paper-action-dialog>
                     <template if="{{ state == 'all_programms' }}">
 
                         <h3 id="h31">программа</h3>

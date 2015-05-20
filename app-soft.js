@@ -11,6 +11,7 @@
 			console.log('Polymer Ready');
 			this.thisdynamicPath = 'states';			
 			this.$.base.addEventListener('core-localstorage-load', console.info('a value is loaded from localStorage'));
+			this.$.dialog.toggle();
 		},
 		remoteDataChanged: function() {
 			console.info('remoteData changed');
@@ -56,6 +57,9 @@
 
 			)			
 		},
+		close: function(){	
+			this.$.dialog.toggle();			
+		},
 		itemClick: function(e) {
 			switch (e.target.id) {
 				case 'students':
@@ -76,7 +80,10 @@
 					break;
 				case 'logo':
 					this.state="all_programms";
-					break;	
+					break;
+				case 'close':
+					this.close()
+					break;					
 				default:
 					console.warn('no state or actions for ' + '#' + e.target.id);
 					console.warn(e.target);
