@@ -32,7 +32,9 @@
 		updateModels: function() {
 			this.$.core_menu.templateInstance.model.MenuItems = this.localData.states[this.state].coreDrawerpanel.drawer.coreMenu.items;
 		},
-		saveProgram: function() {									
+		saveProgram: function() {
+			console.log(this.$.omgTest);
+			this.$.omgTest.show();
 			this.$.baseAdmin.push({
 				shifr: this.shifr,
 				prog_name: this.prog_name,
