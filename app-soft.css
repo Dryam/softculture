@@ -40,7 +40,8 @@ core-item {
     min-height: 22px;
     font-size: 11px;
     text-transform: uppercase; 
-    font-family: 'Baufra Bold';                
+    font-family: 'Baufra Bold';   
+    font-weight: bold;             
 }
 
 core-submenu{
@@ -51,7 +52,8 @@ core-submenu{
 }
 core-submenu > core-item {    
     text-transform: none; 
-    min-height: 18px;   
+    min-height: 18px;  
+    font-weight: normal;      
 }
 core-submenu > core-item.core-selected{
     font-weight: normal;
