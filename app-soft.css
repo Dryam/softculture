@@ -31,7 +31,7 @@ p{
     padding: 0px 35px;
     background-color: rgb(255, 255, 255);    
     font-size: 12px;
-    font-family: Arial, sans-serif;
+    font-family: 'RobotoDraft', sans-serif;
 }
 core-menu {    
     margin: -6px 0 0 37px;        
@@ -120,14 +120,14 @@ core-label /deep/ input[is=core-input]{
 }
 core-label #shifr, core-label #prog_name ,core-label #teacher{
     width:200px;
-    font-family: Arial, sans-serif;
+    font-family: 'RobotoDraft', sans-serif;
     font-size: 12px;
     padding: 2px;
 }
 core-label #type, core-label #start_date, core-label #status, core-label #base_price, core-label #group_size{
     width:100px;
     padding: 2px;
-    font-family: Arial, sans-serif;
+    font-family: 'RobotoDraft', sans-serif;
     font-size: 12px;
 }
 core-label /deep/ #filter[is=core-input]{
@@ -142,8 +142,5 @@ paper-toast {
 } 
 #my-button::shadow #ripple {
   color: blue;
-}
-#section1 h1,h2,h3,h4,h5,h6,th{
-
 }
 </style>
