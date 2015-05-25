@@ -1,5 +1,5 @@
- // TODO:
-// изменить состония меню согласно макетам     
+// TODO:
+// изменить состония меню согласно макета
 (function() {
 	var initialState = 'all_programms';
 	Polymer('app-soft', {
@@ -11,7 +11,6 @@
 			console.log('Polymer Ready');
 			this.thisdynamicPath = 'states';			
 			this.$.base.addEventListener('core-localstorage-load', console.info('a value is loaded from localStorage'));
-			this.$.dialog.toggle();
 		},
 		remoteDataChanged: function() {
 			console.info('remoteData changed');
