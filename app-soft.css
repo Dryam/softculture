@@ -53,7 +53,8 @@ core-submenu{
 core-submenu > core-item {    
     text-transform: none; 
     min-height: 18px;  
-    font-weight: normal;      
+    font-weight: normal; 
+    font-family: 'RobotoDraft', sans-serif;	     
 }
 core-submenu > core-item.core-selected{
     font-weight: normal;
